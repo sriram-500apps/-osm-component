@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <StreetMap
+    :position="{ latitude: 2.478961, longitude: 14.659453 }"
+    :precise="true"
+  />
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { Options, Vue } from "vue-class-component";
+import StreetMap from "./components/StreetMap.vue";
 
 @Options({
   components: {
-    HelloWorld,
+    StreetMap,
   },
 })
 export default class App extends Vue {}
