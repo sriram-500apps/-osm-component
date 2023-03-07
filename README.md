@@ -80,8 +80,8 @@ Add these scripts to your package.json:
 ```
 {
   "scripts": {
-+    "styleguide": "vue-styleguidist server",
-+    "styleguide:build": "vue-styleguidist build"
+    "styleguide": "vue-cli-service styleguidist",
+    "styleguide:build": "vue-cli-service styleguidist:build"
   }
 }
 ```
