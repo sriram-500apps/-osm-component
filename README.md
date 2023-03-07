@@ -5,14 +5,14 @@
 ```
 vue create component-name
 ```
-select `Manually select features`   
-select `Babel`, `TypeScript`, `Progressive Web App (PWA) Support`, `Linter / Formatter`  
-select `3.x`  
-say yes to `class-style component syntax`  
-say yes to `Babel alongside TypeScript`  
-select `ESLint`  
-select `Lint on save`
-select `In dedicated config files`
+* select `Manually select features`   
+* select `Babel`, `TypeScript`, `Progressive Web App (PWA) Support`, `Linter / Formatter`  
+* select `3.x`  
+* say yes to `class-style component syntax`  
+* say yes to `Babel alongside TypeScript`  
+* select `ESLint`  
+* select `Lint on save`
+* select `In dedicated config files`
 
 ## Tailwind Configuration
 
