@@ -1,18 +1,93 @@
-# Vue 3 + TypeScript + Vite
+# Project Creation Steps
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Creating project using vue/cli
 
-## Recommended IDE Setup
+```
+vue create component-name
+```
+* select `Manually select features`   
+* select `Babel`, `TypeScript`, `Progressive Web App (PWA) Support`, `Linter / Formatter`  
+* select `3.x`  
+* say yes to `class-style component syntax`  
+* say yes to `Babel alongside TypeScript`  
+* select `ESLint`  
+* select `Lint on save`
+* select `In dedicated config files`
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Tailwind Configuration
 
-## Type Support For `.vue` Imports in TS
+### Install Tailwind CSS  
+run the commands in terminal to  
+`npm install -D tailwindcss postcss autoprefixer`  
+`npx tailwindcss init -p`  
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### Configure your template paths  
+Add the paths to all of your template files in your tailwind.config.cjs file.  
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### Add the Tailwind directives to your CSS  
+Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.  
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Flowbite Configuration
+
+### Install Flowbite and Flowbite-vue
+Install flowbite and flowbite-vue as a dependency using NPM by running the following command:  
+`npm i flowbite flowbite-vue`
+
+Require Flowbite as a plugin inside the tailwind.config.js and add flowbite-vue dist folder to tailwind content:
+```
+module.exports = {
+  content: [
+    'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
+    'node_modules/flowbite/**/*.{js,jsx,ts,tsx}'
+  ],
+  plugins: [
+      require('flowbite/plugin')
+  ],
+  theme: {}
+}
+```
+
+## Vue Styleguidist Configuration
+
+### Install  
+
+`npm install --save-dev vue-styleguidist`  
+
+If you use Vue CLI 3 (@vue/cli (opens new window)), you should probably use the plugin
+
+`vue add styleguidist`
+
+### Add npm scripts for convenience
+Add these scripts to your package.json:  
+```
+{
+  "scripts": {
+    "styleguide": "vue-cli-service styleguidist",
+    "styleguide:build": "vue-cli-service styleguidist:build"
+  }
+}
+```
+
+### Start your style guide
+Run `npm run styleguide` to start style a guide dev server.
+
+Run `npm run styleguide:build` to build a static version
+
