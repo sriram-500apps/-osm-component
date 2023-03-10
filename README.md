@@ -24,6 +24,8 @@ Run the commands and open project in VS code
 
 ## Tailwind Configuration
 
+You can also check official tailwind installation [here](https://tailwindcss.com/docs/installation/using-postcss)
+
 ### Step 1
 > ![image](https://user-images.githubusercontent.com/84120886/224310180-686c835a-ebeb-4900-a0c3-bbee5a748f61.png)
 
@@ -48,7 +50,6 @@ change the `postcss.config.js` to `postcss.config.cjs`
 import `main.css` file in `main.ts` file
 > ![image](https://user-images.githubusercontent.com/84120886/224311762-d7a31a8e-3b98-4683-a5ca-7bd1246d82c7.png)
 
-You can also check official tailwind installation [here](https://tailwindcss.com/docs/installation/using-postcss)
 
 ---
 
