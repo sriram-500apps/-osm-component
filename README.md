@@ -50,6 +50,8 @@ import `main.css` file in `main.ts` file
 
 You can also check official tailwind installation [here](https://tailwindcss.com/docs/installation/using-postcss)
 
+---
+
 ## Flowbite Configuration
 
 ### Step 1
@@ -75,6 +77,8 @@ module.exports = {
 import flowbite in main.ts file
 > ![image](https://user-images.githubusercontent.com/84120886/224313759-b1757122-2e6d-46f4-8c6e-1cadfc8e623d.png)
 
+---
+
 ## Configure `tsconfig.json` like this
 
 ```
@@ -98,6 +102,8 @@ import flowbite in main.ts file
 }
 ```
 
+---
+
 ## After tailwind and flowbite setup your `tailwind.config.cjs` looks like this
 
 ```
@@ -115,6 +121,8 @@ module.exports = {
 
 ```
 
+---
+
 ## Configure `vite.config.js` like this
 ```
 import { defineConfig } from "vite";
@@ -127,7 +135,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       formats: ["es", "cjs"],
-      fileName: (format) => `component-name.${format}.js`,
+      fileName: (format) => `tailwind-ui-500.${format}.js`,
     },
     rollupOptions: {
       external: ["vue"],
@@ -140,6 +148,110 @@ export default defineConfig({
 });
 
 ```
+---
+## Configure `package.json`
+
+```
+"name": "tailwing-ui-500",
+```
+give the package name based on the component you build
+
+```
+"private": true,
+```
+keep private true as we building modules to ourself which should not be exposed to others
+
+```
+"version": "0.1.0",
+```
+
+```
+"main": "dist/tailwind-ui-500.cjs.js",
+```
+main is a module ID that is the primary entry point to your program.
+
+```
+"module":"dist/tailwind-ui-500.es.js",
+```
+module is a common convention among bundlers to designate how to import an ESM version of our library.
+
+```"files": [ "dist" ],```
+The optional files field is an array of file patterns that describes the entries to be included when your package is installed as a dependency.
+
+```
+"scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run build:styles",
+    "build:styles": "postcss src/main.css -o dist/index.css",
+    "preview": "vite preview"
+  },
+```
+To run and build the package
+
+```
+"dependencies": {
+    "vue": "^3.2.45"
+  },
+```  
+Dependencies are specified in a simple object that maps a package name to a version range. The version range is a string which has one or more space-separated descriptors.
+
+```
+ "peerDependencies": {
+    "vue": "^3.2.45"
+  },
+```
+This is usually referred to as a plugin. Notably, your module may be exposing a specific interface, expected and specified by the host documentation.
+
+```
+
+"devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "flowbite": "^1.6.3",
+    "flowbite-vue": "^0.0.10",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vue-tsc": "^1.0.24"
+  }
+```
+
+If someone is planning on downloading and using your module in their program, then they probably don't want or need to download and build the external test or documentation framework that you use.
+
+**devDependencies** will vary depending on the requirement
+
+---
+
+## File structure
+
+ -- public  
+ -- src  
+     -- assets  
+    -- components  
+        -- Button  
+            -- MButton.vue  
+            -- index.ts  
+        -- Modal  
+            -- MModal.vue  
+            -- index.ts  
+        -- index.ts  
+    -- index.ts  
+ -- .gitignore  
+ -- index.html  
+ -- package.json  
+ -- postcss.config.cjs  
+ -- README.md  
+ -- tailwind.config.cjs  
+ -- tsconfig.json  
+ -- tsconfig.node.json  
+ -- vite.config.js  
+ -- yarn.lock  
+
+ 
+
+
 
 ## Vue Styleguidist Configuration
 
