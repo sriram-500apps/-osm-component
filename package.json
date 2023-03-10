@@ -1,6 +1,6 @@
 {
   "name": "marirs-components",
-  "private": false,
+  "private": true,
   "version": "0.1.7",
   "type": "module",
   "main": "dist/marirs-components.cjs.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && npm run build:styles",
-    "build:styles": "postcss src/index.css -o dist/index.css",
+    "build:styles": "postcss src/main.css -o dist/index.css",
     "preview": "vite preview"
   },
   "dependencies": {
